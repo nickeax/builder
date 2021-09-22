@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body {
+}
+
+h1,
+h2 {
+  font-family: Lato;
+}
+
+td {
+  font-size: 0.7rem;
+  padding: 5px 10px 5px 10px;
+  min-width: 5rem;
+}
+
+table {
+  border-spacing: 0;
+  border: none;
+}
+
+tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+th {
+  text-align: left;
+  background-color: #eee;
+  padding: 15px 5px 15px 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.165);
+  /* border: none; */
+}
