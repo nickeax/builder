@@ -2,6 +2,7 @@ import { Utils } from './modules/utils.js';
 import { DataBuilder } from './modules/dataBuilder.js'
 import { ElementBuilder } from './modules/elementBuilder.js'
 import { ElementConfig } from './models/elementConfig.js'
+import { Paginator } from "./modules/paginator.js";
 import { Address } from './models/address.js';
 import { Person } from './models/person.js';
 
@@ -13,10 +14,12 @@ let u = new Utils();
 let db = new DataBuilder(new Utils())
 
 let people = []
-for (let i = 0; i < 30; i++) {
+for (let i = 0; i < 10; i++) {
   people.push(db.buildPerson())
 }
 
 let testEl = new ElementBuilder(
   new ElementConfig('table', 'standard', 'peopleTable', appDiv, people),
   new Utils())
+
+let pg = new Paginator(people, 3, document.querySelector('#pagingMenu'))
