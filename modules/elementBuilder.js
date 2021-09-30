@@ -34,6 +34,19 @@ export class ElementBuilder {
     return arr.map(x => this.u.capitalise(x))
   }
 
+  sortTable(e, el) {
+    console.log(el)
+    this.data.sort(this.compare)
+    this.buildTable()
+  }
+
+  compare(a, b, key) {
+    let aVal = a[key]
+    let bVal = b[key]
+
+
+  }
+
   buildTable() {
     let tbl = document.createElement('table')
     tbl.id = this.id
@@ -46,6 +59,7 @@ export class ElementBuilder {
       if (i === 0) {
         newHeaders.forEach(x => {
           let th = this.buildElement('th', x)
+          th.addEventListener('click', e => this.sortTable(e, x))
           headerRow.appendChild(th)
         })
         tbl.appendChild(headerRow)
@@ -54,12 +68,10 @@ export class ElementBuilder {
       let currRow = this.buildElement('tr')
       Object.values(x).forEach((y, i) => {
         if (i === Object.values(x).length - 1) {
-          console.log(x.printAddress());
           currRow.appendChild(this.buildElement('td', x.printAddress()))
         } else {
           currRow.appendChild(this.buildElement('td', y))
         }
-
       })
       tbl.appendChild(currRow);
     })
