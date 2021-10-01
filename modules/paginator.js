@@ -7,7 +7,7 @@ export class Paginator {
     this.parent = parent
     this.data = arr
     this.pageSize = Math.floor(this.data.length / IPP)
-    this.numberOfPages = this.data / this.pageSize
+    this.numberOfPages = Math.floor(this.data.length / this.pageSize)
     this.currentPage = 0
 
     this.buildControls()
@@ -22,19 +22,19 @@ export class Paginator {
       case 'prev':
         if (this.currentPage > 0) {
           this.currentPage--
-        }
+        } else this.currentPage = 0
         break;
       case 'next':
         console.log(this.currentPage)
-        if (this.currentPage <= this.numberOfPages) {
+        if (this.currentPage < this.numberOfPages) {
           this.currentPage++
         }
         break;
 
       default:
-        console.log(`Current Page: ${this.currentPage} - NOP: ${this.numberOfPages}`)
         break;
     }
+    console.log(`Current Page: ${this.currentPage} - NOP: ${this.numberOfPages} `)
   }
 
   buildControls() {
