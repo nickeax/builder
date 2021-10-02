@@ -1,6 +1,7 @@
 export class Paginator {
-  data
+  currentData
   pageSize
+  current // element for displaying current page
   currentPage
 
   constructor(arr, IPP, parent) {
@@ -34,10 +35,12 @@ export class Paginator {
       default:
         break;
     }
+    this.current.innerText = this.currentPage
     console.log(`Current Page: ${this.currentPage} - NOP: ${this.numberOfPages} `)
   }
 
   buildControls() {
+    this.current = document.createElement('span')
     let prev = document.createElement('span')
     prev.appendChild(this.buildButton('prev'))
 
@@ -45,6 +48,7 @@ export class Paginator {
     prev.appendChild(this.buildButton('next'))
 
     this.parent.appendChild(prev)
+    this.parent.appendChild(this.current)
     this.parent.appendChild(next)
 
   }

@@ -3,13 +3,15 @@ export class ElementBuilder {
   output
   data
   u
+  pag
 
-  constructor(config, u) {
-    this.data = config.data
+  constructor(config, u, p) {
+    this.pag = p
     this.id = config.id
     this.class = config.class
     this.u = u
     this.parent = config.parent
+    this.data = config.data
     let el;
     switch (config.elementClass) {
       case 'block':
@@ -76,7 +78,7 @@ export class ElementBuilder {
       tbl.appendChild(currRow);
     })
 
-    return tbl
+    this.parent.appendChild(tbl)
   }
 
 

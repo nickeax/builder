@@ -1,9 +1,9 @@
-export class ElementConfig{
+export class ElementConfig {
   elementClass
   class
   id
-  data
   parent
+  data
 
   constructor(ec, c, i, p, d) {
     this.elementClass = ec

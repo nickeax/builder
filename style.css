@@ -50,13 +50,29 @@ th {
   /* border: none; */
 }
 
-th:hover {
+th:hover,
+button:hover {
   cursor: pointer;
   background-image: linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06));
 }
 
+th:active,
 th:active {
   cursor: wait;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2, rgba(0, 0, 0, 0.02));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2, rgba(0, 0, 0, 0.02)));
   box-shadow: 2px 2px 2px inset #222;
+}
+
+button {
+  outline: none;
+  margin: 10px;
+  padding: 4px;
+  min-width: 7rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
